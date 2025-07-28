@@ -1,0 +1,10 @@
+C:\Users\Krrish\Desktop\Krrish\Adobe\input
+C:\Users\Krrish\Desktop\Krrish\Adobe\output
+
+code 1: run this first
+
+docker build --platform linux/amd64 -t mysolution:latest .
+
+code 2: run this later
+
+docker run --rm -v C:\Users\Krrish\Desktop\Krrish\Adobe\input:/app/input -v C:\Users\Krrish\Desktop\Krrish\Adobe\output:/app/output --network none mysolution:latest
