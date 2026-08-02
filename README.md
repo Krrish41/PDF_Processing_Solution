@@ -1,5 +1,7 @@
 # PDF Processing Solution
 
+🌐 **Live Demo**: [PDF_Processing_Solution](https://krrish41.github.io/PDF_Processing_Solution/)
+
 ## 📘 Overview
 
 This tool extracts a structured outline (Title, H1, H2, H3) from text-based PDFs using layout and font-based heuristics. It works fully offline, fits within Docker image constraints, and outputs a clean hierarchical JSON for each input document.
