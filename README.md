@@ -1,37 +1,27 @@
 # PDF Processing Solution
 
-🌐 **Live Demo**: [PDF_Processing_Solution](https://krrish41.github.io/PDF_Processing_Solution/)
-
-## 📘 Overview
-
 This tool extracts a structured outline (Title, H1, H2, H3) from text-based PDFs using layout and font-based heuristics. It works fully offline, fits within Docker image constraints, and outputs a clean hierarchical JSON for each input document.
 
----
+## Overview
 
-## 🧠 Approach
-
-- Uses **pdfplumber** to extract text, layout (font size, position), and structure from each PDF page.
-- Determines the **document title** by selecting the largest and most centered text on the first page.
-- Remaining text is grouped by **font size** and numerically prefixed patterns (like `1.`, `1.2`, etc.) to infer heading levels.
+- Uses **pdfplumber** to extract text, layout (font size, position), and structure from each PDF page
+- Determines the **document title** by selecting the largest and most centered text on the first page
+- Remaining text is grouped by **font size** and numerically prefixed patterns (like `1.`, `1.2`, etc.) to infer heading levels
 - Heading levels are mapped to:
   - `H1`: Largest heading size after title
   - `H2`: Next size down
   - `H3`: Next size down (optional)
-- Outputs a structured JSON outline with heading `level`, `text`, and `page` number.
+- Outputs a structured JSON outline with heading `level`, `text`, and `page` number
 
----
-
-## 🧰 Tech Stack
+## Tech Stack
 
 - **Python 3.9**
 - **pdfplumber**: For PDF parsing and text extraction
 - **Standard Python libraries**: `json`, `re`, `pathlib`
 
-📌 No ML models or training involved — heuristic, layout-aware approach ensures light weight and fast processing.
+No ML models or training involved — heuristic, layout-aware approach ensures light weight and fast processing.
 
----
-
-## 📁 Project Structure
+## Project Structure
 
 ```
 .
@@ -44,11 +34,9 @@ This tool extracts a structured outline (Title, H1, H2, H3) from text-based PDFs
 └── README.md               # You're reading it!
 ```
 
----
+## How to Build and Run (Docker)
 
-## 🐳 How to Build and Run (Docker)
-
-> ✅ Recommended for reproducible and dependency-free execution.
+Recommended for reproducible and dependency-free execution.
 
 1. **Place your PDF(s) in the `input/` folder.**
 
@@ -65,11 +53,9 @@ docker run --rm \
 --network none mysolution:latest
 ```
 
-🔁 Replace `/absolute/path/to/input` and `/absolute/path/to/output` with absolute paths on your system.
+Replace `/absolute/path/to/input` and `/absolute/path/to/output` with absolute paths on your system.
 
----
-
-## 🐍 Local Python Run (for Development)
+## Local Python Run (for Development)
 
 1. **Install requirements:**
 ```bash
@@ -85,9 +71,7 @@ python main.py
 
 Outputs will be saved as `.json` in the `output/` directory.
 
----
-
-## 📤 Output Format
+## Output Format
 
 Each output JSON will follow this structure:
 
@@ -102,16 +86,12 @@ Each output JSON will follow this structure:
 }
 ```
 
----
+## Troubleshooting
 
-## ⚠️ Troubleshooting
+- Scanned/image-only PDFs are not supported (OCR not implemented)
+- Works best with digital/text-based PDFs
+- Ensure Docker volumes are mounted correctly and paths are absolute
 
-- ❌ Scanned/image-only PDFs are not supported (OCR not implemented).
-- ✅ Works best with digital/text-based PDFs.
-- 📂 Ensure Docker volumes are mounted correctly and paths are absolute.
-
----
-
-## 📜 License
+## License
 
 This project is provided as-is for educational and prototyping purposes. Feel free to modify and extend.
